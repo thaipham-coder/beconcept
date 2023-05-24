@@ -26,6 +26,7 @@ export function Next({
         title="Next"
         data-glide-dir=">"
       >
+        <span className="animate-ping delay-300 transition absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-50"></span>
         <svg className={svgSize} viewBox="0 0 24 24" fill="none">
           <path
             d="M14.4301 5.92993L20.5001 11.9999L14.4301 18.0699"

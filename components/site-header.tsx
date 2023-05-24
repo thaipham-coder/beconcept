@@ -53,7 +53,7 @@ export function SiteHeader() {
           inputRef.current?.blur();
         }}
       >
-        <div className="bg-slate-50 dark:bg-slate-800 flex items-center space-x-1.5 px-5 h-full rounded">
+        <div className="bg-slate-50 dark:bg-slate-800 flex items-center space-x-1.5 px-5 h-full rounded-full">
           {renderMagnifyingGlassIcon()}
           <input
             ref={inputRef}

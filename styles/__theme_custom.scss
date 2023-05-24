@@ -305,13 +305,13 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .nc-SectionHero2Item--animation {
   .nc-SectionHero2Item__dot {
     animation-name: SectionHero2ItemDot;
-    animation-duration: 150ms;
+    animation-duration: 350ms;
     animation-timing-function: linear;
   }
 
   .nc-SectionHero2Item__image {
     animation-name: CardLarge1ExampleRight;
-    animation-duration: 650ms;
+    animation-duration: 999ms;
     animation-timing-function: ease-in-out;
   }
 
