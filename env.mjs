@@ -10,6 +10,11 @@ export const env = createEnv({
     SITE_NAME: z.string().min(1),
     SHOPIFY_STOREFRONT_ACCESS_TOKEN: z.string().min(1),
     SHOPIFY_STORE_DOMAIN: z.string().min(1),
+    DATABASE_URL: z.string().min(1),
+    POSTMARK_API_TOKEN: z.string().min(1),
+    POSTMARK_SIGN_IN_TEMPLATE: z.string().min(1),
+    POSTMARK_ACTIVATION_TEMPLATE: z.string().min(1),
+    SMTP_FROM: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -21,5 +26,10 @@ export const env = createEnv({
     SHOPIFY_STOREFRONT_ACCESS_TOKEN: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
     SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    SMTP_FROM: process.env.SMTP_FROM,
+    DATABASE_URL: process.env.DATABASE_URL,
+    POSTMARK_API_TOKEN: process.env.POSTMARK_API_TOKEN,
+    POSTMARK_SIGN_IN_TEMPLATE: process.env.POSTMARK_SIGN_IN_TEMPLATE,
+    POSTMARK_ACTIVATION_TEMPLATE: process.env.POSTMARK_ACTIVATION_TEMPLATE,
   },
 })

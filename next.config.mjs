@@ -8,6 +8,7 @@ const nextConfig = {
     experimental: {
         appDir: true,
         typedRoutes: true,
+        serverComponentsExternalPackages: ["@prisma/client"],
     },
     images: {
         formats: ['image/avif', 'image/webp'],
