@@ -1,4 +1,6 @@
 // import { Product } from "./wordpress/types";
+import { ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
 
 /**
  * @type string
@@ -109,4 +111,8 @@ export function formatDate(dateString: string): string {
   const year = date.getFullYear().toString();
 
   return `${day}-${month}-${year}`;
+}
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }

@@ -8,6 +8,7 @@ export default async function IndexPage() {
     return (
         <div className="nc-PageHome relative overflow-hidden">
             <SectionHero />
+            <SectionTermService />
         </div>
     )
 }

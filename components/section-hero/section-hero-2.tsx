@@ -3,7 +3,6 @@
 import { ButtonPrimary } from "../ui/buttonprimary";
 import { Next } from "../ui/next";
 import { Prev } from "../ui/prev";
-import backgroundLineSvg from "@/assets/images/Moon.svg";
 import imageRightPng2 from "@/assets/images/hero-right-2.png";
 import imageRightPng3 from "@/assets/images/hero-right-3.png";
 import imageRightPng from "@/assets/images/hero-right.png";
@@ -153,17 +152,6 @@ export function SectionHero2({ className = "" }: SectionHero2Props) {
           svgSize="w-6 h-6"
           onClickNext={handleClickNext}
         />
-
-        {/* BG */}
-        <div className="absolute inset-0 bg-[#E3FFE6]">
-          <Image
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="absolute w-full h-full object-contain"
-            src={backgroundLineSvg}
-            alt="hero"
-          />
-        </div>
 
         <div className="relative container pb-0 pt-14 sm:pt-20 lg:py-44">
           <div

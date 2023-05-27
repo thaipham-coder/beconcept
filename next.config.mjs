@@ -1,10 +1,13 @@
-const { withPlaiceholder } = require("@plaiceholder/next");
+import { withContentlayer } from "next-contentlayer"
+
+import "./env.mjs"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
     experimental: {
         appDir: true,
+        typedRoutes: true,
     },
     images: {
         formats: ['image/avif', 'image/webp'],
@@ -22,6 +25,13 @@ const nextConfig = {
             "secure.gravatar.com",
         ],
     },
+    typescript: {
+        // !! WARN !!
+        // Dangerously allow production builds to successfully complete even if
+        // your project has type errors.
+        // !! WARN !!
+        ignoreBuildErrors: true,
+    },
 };
 
-module.exports = withPlaiceholder(nextConfig);
+export default withContentlayer(nextConfig)

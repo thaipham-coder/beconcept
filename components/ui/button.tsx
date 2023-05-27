@@ -1,7 +1,7 @@
 "use client";
 
 import { twFocusClass } from "@/lib/utils";
-import { Route } from "@/routers/types";
+import type { Route } from 'next';
 import Link from "next/link";
 import React, { ButtonHTMLAttributes, FC } from "react";
 

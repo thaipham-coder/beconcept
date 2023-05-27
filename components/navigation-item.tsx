@@ -37,37 +37,93 @@ export function NavigationItem({ menuItem }: NavigationItemProps) {
 
   // ===================== MENU MEGAMENU =====================
   const renderMegaMenu = (menu: NavItemType) => {
+    const isHover = menuCurrentHovers.includes(menu.id);
     if (!menu.children) {
       return null;
     }
     return (
-      <li
-        className={`menu-item flex-shrink-0 menu-megamenu menu-megamenu--large`}
+      <Popover
+        as="li"
+        className="menu-item flex-shrink-0 menu-megamenu menu-megamenu--large"
+        onMouseEnter={() => onMouseEnterMenu(menu.id)}
+        onMouseLeave={() => onMouseLeaveMenu(menu.id)}
       >
-        {renderMainItem(menu)}
-
-        <div className="invisible sub-menu absolute top-full inset-x-0 transform z-50">
-          <div className="bg-white dark:bg-neutral-900 shadow-lg">
-            <div className="container">
-              <div className="flex text-sm border-t border-slate-200 dark:border-slate-700 py-14">
-                <div className="flex-1 grid grid-cols-4 gap-6 xl:gap-8 pr-6 xl:pr-8">
-                  {menu.children.map((item, index) => (
-                    <div key={index}>
-                      <p className="font-bold text-base text-slate-900 dark:text-neutral-200">
-                        {item.name}
-                      </p>
-                      <ul className="grid space-y-4 mt-4">
-                        {item.children?.map(renderMegaMenuNavlink)}
-                      </ul>
+        {() => (
+          <>
+            <Popover.Button as={Fragment}>
+              {renderMainItem(menu)}
+            </Popover.Button>
+            <Transition
+              as={Fragment}
+              show={isHover}
+              enter="transition ease-out duration-300 delay-150"
+              enterFrom="opacity-0 translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-in duration-300 delay-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-1"
+            >
+              <Popover.Panel
+                static
+                className="invisible sub-menu absolute top-full inset-x-0 transform z-50"
+              >
+                <div className="bg-white dark:bg-neutral-900 shadow-lg">
+                  <div className="container">
+                    <div className="flex text-sm border-t border-slate-200 dark:border-slate-700 py-14">
+                      <div className="flex-1 grid grid-cols-4 gap-6 xl:gap-8 pr-6 xl:pr-8">
+                        {menu.children?.map((item, index) => {
+                          if (item.type) {
+                            return renderDropdownMenuNavlinkHasChild(item);
+                          } else {
+                            return (
+                              <div key={index}>
+                                <p className="font-bold text-base text-slate-900 dark:text-neutral-200">
+                                  {item.name}
+                                </p>
+                                <ul className="grid space-y-4 mt-4">
+                                  {item.children?.map(renderMegaMenuNavlink)}
+                                </ul>
+                              </div>
+                            );
+                          }
+                        })}
+                      </div>
+                      <div className="w-[40%] xl:w-[35%]">{`<CardCategory3 />`}</div>
                     </div>
-                  ))}
+                  </div>
                 </div>
-                <div className="w-[40%] xl:w-[35%]">{`<CardCategory3 />`}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
+              </Popover.Panel>
+            </Transition>
+          </>
+        )}
+      </Popover>
+      // <li
+      //   className={`menu-item flex-shrink-0 menu-megamenu menu-megamenu--large`}
+      // >
+      //   {renderMainItem(menu)}
+
+      //   <div className="invisible sub-menu absolute top-full inset-x-0 transform z-50">
+      //     <div className="bg-white dark:bg-neutral-900 shadow-lg">
+      //       <div className="container">
+      //         <div className="flex text-sm border-t border-slate-200 dark:border-slate-700 py-14">
+      //           <div className="flex-1 grid grid-cols-4 gap-6 xl:gap-8 pr-6 xl:pr-8">
+      //             {menu.children.map((item, index) => (
+      //               <div key={index}>
+      //                 <p className="font-bold text-base text-slate-900 dark:text-neutral-200">
+      //                   {item.name}
+      //                 </p>
+      //                 <ul className="grid space-y-4 mt-4">
+      //                   {item.children?.map(renderMegaMenuNavlink)}
+      //                 </ul>
+      //               </div>
+      //             ))}
+      //           </div>
+      //           <div className="w-[40%] xl:w-[35%]">{`<CardCategory3 />`}</div>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>
+      // </li>
     );
   };
 
@@ -104,10 +160,10 @@ export function NavigationItem({ menuItem }: NavigationItemProps) {
             <Transition
               as={Fragment}
               show={isHover}
-              enter="transition ease-out duration-150"
+              enter="transition ease-out duration-300 delay-100"
               enterFrom="opacity-0 translate-y-1"
               enterTo="opacity-100 translate-y-0"
-              leave="transition ease-in duration-150"
+              leave="transition ease-in duration-300 delay-100"
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
