@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files"
+import { defineDocumentType, makeSource, defineNestedType } from "contentlayer/source-files"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
@@ -16,6 +16,22 @@ const computedFields = {
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
 }
+
+export const Category = defineNestedType(() => ({
+  name: 'Category',
+  filePathPattern: 'categories/**/*.mdx',
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: 'string',
+      required: true
+    },
+    description: {
+      type: "string",
+    },
+  },
+  computedFields
+}))
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -50,10 +66,10 @@ export const Post = defineDocumentType(() => ({
       of: { type: "string" },
       required: true,
     },
-    tags: {
-      type: "string",
-      required: true,
-    }
+    category: {
+      type: 'string',
+      of: Category,
+    },
   },
   computedFields,
 }))
@@ -100,7 +116,7 @@ export const Author = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Page, Post, Author],
+  documentTypes: [Page, Post, Author, Category],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
