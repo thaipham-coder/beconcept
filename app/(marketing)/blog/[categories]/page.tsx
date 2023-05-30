@@ -17,20 +17,20 @@ interface CategoryPageProps {
 
 async function getCategoryFromParams(params: { slug: any }) {
     const slug = params?.slug?.join("/")
-    const post = allCategories.find((post) => post.slugAsParams === slug)
+    const category = allCategories.find((categories) => categories.slugAsParams === slug)
 
-    if (!post) {
+    if (!category) {
         null
     }
 
-    return post
+    return category
 }
 
 export async function generateStaticParams(): Promise<
     CategoryPageProps["params"][]
 > {
-    return allCategories.map((post) => ({
-        slug: post.slugAsParams.split("/"),
+    return allCategories.map((categories) => ({
+        slug: categories.slugAsParams.split("/"),
     }))
 }
 
