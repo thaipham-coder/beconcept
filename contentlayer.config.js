@@ -28,7 +28,54 @@ export const Category = defineNestedType(() => ({
     },
     description: {
       type: "string",
+      required: true
     },
+  },
+  computedFields
+}))
+
+export const ActualWorks = defineDocumentType(() => ({
+  name: 'ActualWorks',
+  filePathPattern: 'actualworks/**/*.mdx',
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: 'string',
+      required: true
+    },
+    description: {
+      type: "string",
+      required: true
+    },
+    acreage: {
+      type: "number",
+      required: true
+    },
+    price: {
+      type: "number",
+      required: true
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+    published: {
+      type: "boolean",
+      default: true,
+    },
+    image: {
+      type: "string",
+      required: true,
+    },
+    fakeViewCount: {
+      type: "number",
+      required: true
+    },
+    typeOfConstruction: {
+      type: 'enum',
+      options: ['apartment', 'townhouse', 'villa', 'duplex', 'other'],
+      default: 'other',
+    }
   },
   computedFields
 }))
@@ -116,7 +163,7 @@ export const Author = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Page, Post, Author, Category],
+  documentTypes: [Page, Post, Author, Category, ActualWorks],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

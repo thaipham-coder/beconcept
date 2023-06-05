@@ -1,5 +1,5 @@
+import LocaleSwitcher from "./locale-switcher";
 import { LogoLite } from "./ui/logo-lite";
-import { SocialsList1 } from "./ui/socials-list-1";
 import { CustomLink } from "@/types";
 import React from "react";
 
@@ -90,7 +90,7 @@ export function SiteFooter() {
         {widgetMenus.map(renderWidgetMenuItem)}
       </div>
 
-      <div className="container flex flex-col items-start justify-start gap-4 py-4">
+      <div className="container flex flex-col items-start justify-between gap-4 py-4 md:flex-row">
         <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
           <p className="text-center text-sm font-bold leading-loose md:text-left">
             {'Copyright © 2023 '}{" "}
@@ -100,6 +100,7 @@ export function SiteFooter() {
             All rights reserved.
           </p>
         </div>
+        <LocaleSwitcher />
       </div>
     </footer>
   );

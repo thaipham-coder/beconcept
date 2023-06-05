@@ -17,13 +17,17 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'cdn.shopify.com',
                 pathname: '/s/files/**'
+            },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+                pathname: '/dcrkgm1px/image/upload/**'
+            },
+            {
+                protocol: 'https',
+                hostname: 'secure.gravatar.com',
+                pathname: '/avatar/**'
             }
-        ],
-        domains: [
-            "0.gravatar.com",
-            "1.gravatar.com",
-            "2.gravatar.com",
-            "secure.gravatar.com",
         ],
     },
     typescript: {
