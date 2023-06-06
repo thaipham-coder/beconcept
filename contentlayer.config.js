@@ -62,10 +62,6 @@ export const ActualWorks = defineDocumentType(() => ({
       type: "number",
       required: true
     },
-    price: {
-      type: "number",
-      required: true
-    },
     date: {
       type: "date",
       required: true,

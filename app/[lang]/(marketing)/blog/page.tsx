@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { allPosts, allCategories } from "contentlayer/generated"
+import { allPosts } from "contentlayer/generated"
 import { compareDesc } from "date-fns"
 
 import { formatDate } from "@/lib/utils"
@@ -57,7 +57,7 @@ export default async function BlogPage() {
                   {formatDate(post.date)}
                 </p>
               )}
-              <Link href={`blog/${post.category}/${post.slugAsParams}`} className="absolute inset-0">
+              <Link href={`/blog/${post.category}/${post.slugAsParams}`} className="absolute inset-0">
                 <span className="sr-only">View Article</span>
               </Link>
             </article>

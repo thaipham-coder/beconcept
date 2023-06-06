@@ -145,7 +145,7 @@ export const NAVIGATION_EN: NavItemType[] = [
   },
   {
     id: ncNanoId(),
-    href: "/",
+    href: "/en/work",
     name: "Works",
   },
   {
@@ -155,7 +155,7 @@ export const NAVIGATION_EN: NavItemType[] = [
   },
   {
     id: ncNanoId(),
-    href: "/blog",
+    href: "/en/blog",
     name: "Blog",
   },
   {
@@ -173,7 +173,7 @@ export const NAVIGATION_VI: NavItemType[] = [
   },
   {
     id: ncNanoId(),
-    href: "/",
+    href: "/vi/work",
     name: "Dự án",
   },
   {
@@ -183,7 +183,7 @@ export const NAVIGATION_VI: NavItemType[] = [
   },
   {
     id: ncNanoId(),
-    href: "/blog",
+    href: "/vi/blog",
     name: "Blog",
   },
   {
