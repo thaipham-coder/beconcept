@@ -6,6 +6,11 @@ import remarkGfm from "remark-gfm"
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 
+const getLocale = (path) => {
+  const pathArray = path.split('.')
+  return pathArray.length > 2 ? pathArray.slice(-2)[0] : 'en'
+}
+
 const computedFields = {
   slug: {
     type: "string",
@@ -14,6 +19,12 @@ const computedFields = {
   slugAsParams: {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+  },
+  locale: {
+    type: 'string',
+    resolve: (doc) => {
+      return getLocale(doc._raw.sourceFilePath)
+    },
   },
 }
 

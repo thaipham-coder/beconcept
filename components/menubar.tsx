@@ -3,10 +3,13 @@
 import { Transition, Dialog } from "@headlessui/react";
 import React, { useState, Fragment } from "react";
 import NavMobile from "./navmobile";
+import { i18n } from "@/i18n-config";
+import { NavItemType } from "./navigation-item";
+import { NAVIGATION_EN, NAVIGATION_VI } from "@/config/marketing";
 
-export interface MenuBarProps {}
+export interface MenuBarProps { }
 
-export function MenuBar() {
+export function MenuBar({ lang }: any) {
   const [isVisable, setIsVisable] = useState(false);
 
   const handleOpenMenu = () => setIsVisable(true);
@@ -32,7 +35,29 @@ export function MenuBar() {
                 leaveTo="opacity-0 -translate-x-14"
               >
                 <div className="z-20 relative">
-                  <NavMobile onClickClose={handleCloseMenu} />
+                  {i18n.locales.map((locale) => {
+                    let navigationItems: NavItemType[] = [];
+                    switch (locale) {
+                      case 'en':
+                        navigationItems = NAVIGATION_EN;
+                        break;
+                      case 'vi':
+                        navigationItems = NAVIGATION_VI;
+                        break;
+                      // Add cases for other supported languages
+
+                      default:
+                        break; // Handle unsupported languages
+                    }
+
+                    if (locale === lang) {
+                      return (
+                        <NavMobile onClickClose={handleCloseMenu} data={navigationItems} />
+                      );
+                    }
+                    return null;
+                  })}
+
                 </div>
               </Transition.Child>
 

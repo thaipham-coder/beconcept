@@ -137,31 +137,58 @@ const IDIA_TEMPLATE: NavItemType[] = [
   },
 ];
 
-export const NAVIGATION_DEMO_2: NavItemType[] = [
+export const NAVIGATION_EN: NavItemType[] = [
   {
     id: ncNanoId(),
-    href: "#",
-    name: "Giới thiệu",
-  },
-  {
-    id: ncNanoId(),
-    href: "#",
-    name: "Tìm ý tưởng",
-    type: "dropdown",
-    children: IDIA_TEMPLATE,
+    href: "/",
+    name: "About Us",
   },
   {
     id: ncNanoId(),
     href: "/",
-    name: "Thiết kế thi công",
-    type: "megaMenu",
-    children: SERVICES_TEMPLATE,
+    name: "Works",
   },
   {
     id: ncNanoId(),
     href: "/",
-    name: "Shop nội thất",
-    type: "megaMenu",
-    children: SHOP_TEMPLATES,
+    name: "Innovation",
+  },
+  {
+    id: ncNanoId(),
+    href: "/blog",
+    name: "Blog",
+  },
+  {
+    id: ncNanoId(),
+    href: "/",
+    name: "Contact",
+  },
+];
+
+export const NAVIGATION_VI: NavItemType[] = [
+  {
+    id: ncNanoId(),
+    href: "/",
+    name: "Về chúng tôi",
+  },
+  {
+    id: ncNanoId(),
+    href: "/",
+    name: "Dự án",
+  },
+  {
+    id: ncNanoId(),
+    href: "/",
+    name: "Sáng tạo từ BEC",
+  },
+  {
+    id: ncNanoId(),
+    href: "/blog",
+    name: "Blog",
+  },
+  {
+    id: ncNanoId(),
+    href: "/",
+    name: "Liên hệ",
   },
 ];

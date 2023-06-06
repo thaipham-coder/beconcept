@@ -32,9 +32,9 @@ export function middleware(request: NextRequest) {
       '/favicon-16x16.png',
       '/favicon-32x32.png',
       '/og.jpg',
-      'next.svg',
+      '/next.svg',
       '/site.webmanifest',
-      'vercel.svg',
+      '/vercel.svg',
       // Your other files in `public`
     ].includes(pathname)
   )

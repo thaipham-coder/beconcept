@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/utils";
 import { i18n } from '../../i18n-config'
+import { SiteHeader } from "@/components/site-header";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -82,6 +83,7 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
           defaultTheme="light"
           enableSystem={false}
         >
+          <SiteHeader lang={params.lang} />
           {children}
           <TailwindIndicator />
         </ThemeProvider>

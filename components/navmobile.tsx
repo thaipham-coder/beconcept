@@ -1,6 +1,5 @@
 "use client";
 
-import { NAVIGATION_DEMO_2 } from "@/config/marketing";
 import { Disclosure } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
@@ -13,12 +12,12 @@ import { ButtonClose } from "./ui/buttonclose";
 import { ButtonPrimary } from "./ui/buttonprimary";
 
 export interface NavMobileProps {
-  data?: NavItemType[];
+  data: NavItemType[];
   onClickClose?: () => void;
 }
 
 const NavMobile: React.FC<NavMobileProps> = ({
-  data = NAVIGATION_DEMO_2,
+  data,
   onClickClose,
 }) => {
   const _renderMenuChild = (

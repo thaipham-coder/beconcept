@@ -71,7 +71,7 @@ export function SiteFooter() {
   return (
     <footer className="nc-Footer relative pt-10 lg:pt-20 border-t border-neutral-200 dark:border-neutral-700">
       <div className="container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 lg:grid-cols-4 md:gap-x-10 ">
-        <div className="grid grid-cols-4 gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
+        <div className="grid gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
           <div className="col-span-1 flex gap-1">
             <div className="flex-inital">
               <LogoLite />
@@ -90,8 +90,8 @@ export function SiteFooter() {
         {widgetMenus.map(renderWidgetMenuItem)}
       </div>
 
-      <div className="container flex flex-col items-start justify-between gap-4 py-4 md:flex-row">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+      <div className="container flex flex-col items-center justify-between gap-4 py-4 md:flex-row">
+        <div className="flex flex-col items-center gap-4 px-8 sm:flex-row sm:gap-2 sm:px-0">
           <p className="text-center text-sm font-bold leading-loose md:text-left">
             {'Copyright © 2023 '}{" "}
             BECONCEPT CO.,LTD

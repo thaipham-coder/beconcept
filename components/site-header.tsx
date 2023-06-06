@@ -9,9 +9,11 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import React, { createRef, useState } from "react";
 
-export interface SiteHeaderProps {}
+export interface SiteHeaderProps {
+  lang: string
+}
 
-export function SiteHeader() {
+export function SiteHeader({ lang }: SiteHeaderProps) {
   const router = useRouter();
   const inputRef = createRef<HTMLInputElement>();
   const [showSearchForm, setShowSearchForm] = useState(false);
@@ -73,9 +75,9 @@ export function SiteHeader() {
 
   const renderContent = () => {
     return (
-      <div className="h-20 flex justify-between">
+      <div className="md:h-20 flex justify-between">
         <div className="flex items-center lg:hidden flex-1">
-          <MenuBar />
+          <MenuBar lang={lang} />
         </div>
 
         <div className="lg:flex-1 flex items-center">
@@ -83,7 +85,7 @@ export function SiteHeader() {
         </div>
 
         <div className="flex-[2] hidden lg:flex justify-center mx-4">
-          {showSearchForm ? renderSearchForm() : <Navigation />}
+          {showSearchForm ? renderSearchForm() : <Navigation lang={lang} />}
         </div>
 
         <div className="flex-1 flex items-center justify-end text-slate-700 dark:text-slate-100">
